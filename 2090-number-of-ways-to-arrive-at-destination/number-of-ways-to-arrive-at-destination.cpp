@@ -28,7 +28,7 @@ public:
             auto currnode = pq.top().second;
             pq.pop();
 
-            if(currnodedist > dist[currnode]) continue;
+            // if(currnodedist > dist[currnode]) continue;
 
             for(auto neighbour : adjlist[currnode]){
                 if(currnodedist + neighbour.second < dist[neighbour.first]){
