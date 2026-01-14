@@ -19,13 +19,13 @@ public:
             int ulp_u = findUpar(u);
             int ulp_v = findUpar(v);
 
-            if(ulp_u == ulp_v) return false;
+            if(ulp_u == ulp_v) return true;
 
             if(size[ulp_u] < size[ulp_v]) swap(ulp_u, ulp_v);
 
             size[ulp_u] += size[ulp_v];
             parent[ulp_v] = ulp_u;
-            return true;
+            return false;
         }
     };
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
@@ -37,7 +37,7 @@ public:
             int u = it[0];
             int v = it[1];
 
-            if(!ds.UnionBySize(u, v)){
+            if(ds.UnionBySize(u, v)){
                 last  = it;
             }
         }
